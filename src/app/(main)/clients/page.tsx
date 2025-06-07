@@ -5,11 +5,11 @@ import { Users, Search, Filter, Plus, MoreVertical, ArrowUpDown, UserCheck, User
 import { useState } from 'react'
 
 const clients = [
-  { id: 1, name: 'Jean Dupont', email: 'jean.dupont@example.com', status: 'actif', lastSession: '2023-05-15' },
-  { id: 2, name: 'Marie Lambert', email: 'marie.lambert@example.com', status: 'actif', lastSession: '2023-05-18' },
-  { id: 3, name: 'Pierre Durand', email: 'pierre.durand@example.com', status: 'inactif', lastSession: '2023-04-22' },
-  { id: 4, name: 'Sophie Martin', email: 'sophie.martin@example.com', status: 'actif', lastSession: '2023-05-20' },
-  { id: 5, name: 'Thomas Bernard', email: 'thomas.bernard@example.com', status: 'nouveau', lastSession: '2023-05-21' },
+  { id: 1, name: 'Leandre PARE', email: 'pare@example.com', status: 'actif', lastSession: '2023-05-15' },
+  { id: 2, name: 'Yameogo Junior', email: 'junior@example.com', status: 'actif', lastSession: '2023-05-18' },
+  { id: 3, name: 'Dotor Spook', email: 'spook@example.com', status: 'inactif', lastSession: '2023-04-22' },
+  { id: 4, name: 'Nestoria COMPAORE', email: 'nestor@example.com', status: 'actif', lastSession: '2023-05-20' },
+  { id: 5, name: 'Noufou KABRE', email: 'noufou@example.com', status: 'nouveau', lastSession: '2023-05-21' },
 ]
 
 export default function ClientsPage() {

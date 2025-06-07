@@ -27,7 +27,7 @@ import { usePathname } from 'next/navigation'
 import React from 'react'
 import { clsx } from 'clsx'
 
-const navItems = [
+export const navItems = [
   { name: 'Tableau de bord', href: '/dashboard', icon: LayoutDashboard },
   { name: 'Repas', href: '/meals', icon: Utensils },
   { name: 'Planification', href: '/planning', icon: Calendar },

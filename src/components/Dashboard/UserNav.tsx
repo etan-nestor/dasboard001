@@ -1,6 +1,6 @@
 'use client'
 
-import { User, Settings, LogOut } from 'lucide-react'
+import { User, Settings, LogOut, ChevronRight, LifeBuoy } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import {
   DropdownMenu,
@@ -12,60 +12,118 @@ import {
   DropdownMenuShortcut,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
+import { motion } from 'framer-motion'
+import { cn } from '@/lib/utils'
 
 export function UserNav() {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button 
-          variant="ghost" 
-          className="relative p-2 rounded-full hover:bg-accent transition-colors"
-          aria-label="Menu utilisateur"
+        <motion.div
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
         >
-          <User className="h-5 w-5 text-orange-500 dark:text-orange-400" />
-        </Button>
+          <Button 
+            variant="ghost" 
+            className={cn(
+              "relative h-9 w-9 rounded-full p-0",
+              "hover:bg-[#A7001E]/10 dark:hover:bg-[#A7001E]/20",
+              "transition-all duration-200",
+              "flex items-center justify-center"
+            )}
+            aria-label="Menu utilisateur"
+          >
+            <div className="h-8 w-8 rounded-full bg-[#A7001E] flex items-center justify-center text-white font-medium">
+              NC
+            </div>
+          </Button>
+        </motion.div>
       </DropdownMenuTrigger>
       
       <DropdownMenuContent 
-        className="w-56 rounded-lg shadow-xl border-0 bg-gradient-to-b from-[#1e3a8a] via-[#1e40af] to-[#1e3a8a] dark:from-[#0f172a] dark:via-[#1e293b] dark:to-[#0f172a] mt-1.5 overflow-hidden"
+        className={cn(
+          "w-64 rounded-xl shadow-2xl border border-gray-200 dark:border-gray-800",
+          "bg-white/95 dark:bg-[#121827]/95 backdrop-blur-lg",
+          "mt-1.5 overflow-hidden p-2"
+        )}
         align="end"
-        sideOffset={5}
+        sideOffset={8}
       >
-        {/* Header avec dégradé orangé */}
-        <div className="bg-gradient-to-r from-orange-600 to-orange-800 px-3 py-2">
-          <DropdownMenuLabel className="font-normal text-white p-0">
-            <div className="flex flex-col space-y-0.5">
-              <p className="text-sm font-medium leading-none">Jean Dupont</p>
-              <p className="text-xs leading-none text-orange-100">
+        {/* Header du menu */}
+        <DropdownMenuLabel className="px-3 py-3">
+          <div className="flex items-center gap-3">
+            <div className="h-10 w-10 rounded-full bg-[#A7001E] flex items-center justify-center text-white font-medium">
+              JD
+            </div>
+            <div className="flex flex-col">
+              <p className="text-sm font-medium">Nestor COMPAORE</p>
+              <p className="text-xs text-gray-500 dark:text-gray-400">
                 contact@opennumeric.com
               </p>
             </div>
-          </DropdownMenuLabel>
-        </div>
+          </div>
+        </DropdownMenuLabel>
         
-        <div className="p-1">
-          <DropdownMenuGroup>
-            <DropdownMenuItem className="cursor-pointer focus:bg-orange-500/20 focus:text-orange-100 text-gray-100 px-3 py-2 rounded-md my-1 transition-colors">
-              <User className="mr-2 h-4 w-4 text-orange-300" />
-              <span>Profil</span>
-              <DropdownMenuShortcut className="text-orange-300/80">⇧⌘P</DropdownMenuShortcut>
-            </DropdownMenuItem>
-            
-            <DropdownMenuItem className="cursor-pointer focus:bg-orange-500/20 focus:text-orange-100 text-gray-100 px-3 py-2 rounded-md my-1 transition-colors">
-              <Settings className="mr-2 h-4 w-4 text-orange-300" />
-              <span>Paramètres</span>
-              <DropdownMenuShortcut className="text-orange-300/80">⌘S</DropdownMenuShortcut>
-            </DropdownMenuItem>
-          </DropdownMenuGroup>
-          
-          <DropdownMenuSeparator className="bg-orange-800/50 my-1" />
-          
-          <DropdownMenuItem className="cursor-pointer focus:bg-red-500/20 text-red-100 hover:text-white px-3 py-2 rounded-md transition-colors">
-            <LogOut className="mr-2 h-4 w-4" />
-            <span>Déconnexion</span>
-            <DropdownMenuShortcut className="text-red-300/80">⇧⌘Q</DropdownMenuShortcut>
+        <DropdownMenuSeparator className="bg-gray-100 dark:bg-gray-800 my-1" />
+        
+        <DropdownMenuGroup>
+          <DropdownMenuItem className={cn(
+            "cursor-pointer px-3 py-2 rounded-lg my-1",
+            "focus:bg-[#A7001E]/10 focus:text-[#A7001E] dark:focus:text-white",
+            "text-gray-700 dark:text-gray-300",
+            "transition-colors duration-200"
+          )}>
+            <div className="flex items-center justify-between w-full">
+              <div className="flex items-center">
+                <User className="mr-3 h-4 w-4 text-[#A7001E] dark:text-[#ff4d4d]" />
+                <span>Profil</span>
+              </div>
+              <ChevronRight className="h-4 w-4 text-gray-400" />
+            </div>
           </DropdownMenuItem>
-        </div>
+          
+          <DropdownMenuItem className={cn(
+            "cursor-pointer px-3 py-2 rounded-lg my-1",
+            "focus:bg-[#A7001E]/10 focus:text-[#A7001E] dark:focus:text-white",
+            "text-gray-700 dark:text-gray-300",
+            "transition-colors duration-200"
+          )}>
+            <div className="flex items-center justify-between w-full">
+              <div className="flex items-center">
+                <Settings className="mr-3 h-4 w-4 text-[#A7001E] dark:text-[#ff4d4d]" />
+                <span>Paramètres</span>
+              </div>
+              <ChevronRight className="h-4 w-4 text-gray-400" />
+            </div>
+          </DropdownMenuItem>
+
+          <DropdownMenuItem className={cn(
+            "cursor-pointer px-3 py-2 rounded-lg my-1",
+            "focus:bg-[#A7001E]/10 focus:text-[#A7001E] dark:focus:text-white",
+            "text-gray-700 dark:text-gray-300",
+            "transition-colors duration-200"
+          )}>
+            <div className="flex items-center justify-between w-full">
+              <div className="flex items-center">
+                <LifeBuoy className="mr-3 h-4 w-4 text-[#A7001E] dark:text-[#ff4d4d]" />
+                <span>Aide & Support</span>
+              </div>
+              <ChevronRight className="h-4 w-4 text-gray-400" />
+            </div>
+          </DropdownMenuItem>
+        </DropdownMenuGroup>
+        
+        <DropdownMenuSeparator className="bg-gray-100 dark:bg-gray-800 my-1" />
+        
+        <DropdownMenuItem className={cn(
+          "cursor-pointer px-3 py-2 rounded-lg",
+          "focus:bg-red-500/10 focus:text-red-600 dark:focus:text-red-400",
+          "text-red-600 dark:text-red-400",
+          "transition-colors duration-200"
+        )}>
+          <LogOut className="mr-3 h-4 w-4" />
+          <span>Déconnexion</span>
+        </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
   )
